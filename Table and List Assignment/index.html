@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables and Lists</title>
+    <style>
+        table{
+         font-family:arial,sans-serif;
+         border-collapse:collapse;
+         width:100%;
+         height:50%;
+        }
+        td,th{
+         border:1px solid  #dddddd;
+         text-align:left;
+         padding:8px;
+        }
+        tr:nth-child(even){
+         background-color: #dddddd;
+        }
+        tr:hover {background-color: #D6EEEE;}
+    </style>
+</head>
+<body>
+     <!-- designed to center the text at the center -->
+     <h1 style="text-align: center;">TABLES</h1>
+     <br/>
+     <p style="text-align: center;"><strong>Below is a table containing a list of logistic hubs for various companies around Belgium and Netherlands , United Kingdom and Germany and their addresses</strong></p>
+     <br/>
+     <!-- Below <table> tag will be used to create tables -->
+     <table>
+         <!-- Used to provide the caption to the table -->
+         <caption><b>Logistic Hubs for Companies</b></caption>
+         <!-- Creation of the header titles for the table  -->
+         <thead>
+             <tr>
+                 <th>Company Name</th>
+                 <th>Organization</th>
+                 <th>Country</th>
+                 <th>Address</th>
+             </tr>
+         </thead>
+         
+                 <!-- used to group the body content in the html table -->
+         <tbody>
+             <tr>
+                 <td>Brussels logistic hub</td>
+                 <td>Apple</td>
+                 <td>Belgium</td>
+                 <td>Zaventem in Bruxelles Av. de la Toison d'Or 26/28, 1050 </td>
+             </tr>
+             <tr>
+                 <!-- rowspan number of rows a table cell should span in this case 4 rows -->
+                 <td>24plus Systemverkehre GmbH + Co. KG</td>
+                 <td rowspan="4">Samsung</td>
+                 <td>Germany</td>
+                 <td>Blaue Liede 12, 36282 Hauneck</td>
+             </tr>
+             <tr>
+                 <td>Samsung Experience Store - Brussels </td>
+                 <td>Belgium</td>
+                 <td>Bd Lambermont 1, 1000 Bruxelles</td>
+             </tr>
+             <tr>
+                 <td>Yusen Logistics LTD</td>
+                 <td>United Kingdom</td>
+                 <td>Appleby Lodge Way, Sywell Rd, Wellingborough NN8 6BS</td>
+             </tr>
+             <tr>
+                 <td>Samsung WEDC</td>
+                 <td>Netherlands</td>
+                 <td>Theseusstraat 11, 5047 RH Tilburg</td>
+             </tr>
+             <tr>
+                 <td>Advanced Micro Devices</td>
+                 <td rowspan="5">Advanced Micro Devices</td>
+                 <td>Belgium</td>
+                 <td>Avenue Marnix 23 1000 Brussels</td>
+             </tr>
+             <tr>
+                 <td>Advanced Micro Devices (U.K.), Limited</td>
+                 <td>United Kingdom</td>
+                 <td>Regus – Midsummer Court 314 Midsummer Boulevard MK9 2UB Milton Keynes</td>
+             </tr>
+             <tr>
+                 <td>Brussels logistic hub</td>
+                 <td>United Kingdom</td>
+                 <td>Westbrook Centre, Block 7, Milton Road, CB4 1YG Cambridge</td>
+             </tr>
+             <tr>
+                 <td>Brussels logistic hub</td>
+                 <td>Germany</td>
+                 <td>Einsteinring, 24 85609 Dornach bei Muenchen</td>
+             </tr>
+             <tr>
+                 <td>Brussels logistic hub</td>
+                 <td>Netherlands</td>
+                 <td>Natriumweg 7, 3812 PV Amersfoort</td>
+             </tr>
+             <tr>
+                 <td>hub.brussels</td>
+                 <td rowspan="4">Nvidia</td>
+                 <td>Belgium</td>
+                 <td>Wilhelmina van Pruisenweg 35, 2595 AN Den Haag</td>
+             </tr>
+             <tr>
+                 <td>Dutch Hubs</td>
+                 <td>Netherlands</td>
+                 <td>Wilhelmina van Pruisenweg 35, 2595 AN Den Haag</td>
+             </tr>
+             <tr>
+                 <td>NVIDIA Ltd (UK)</td>
+                 <td>United Kingdom</td>
+                 <td>100 Brook Dr, Reading RG2 6UJ</td>
+
+             <tr>
+                 <td>NVIDIA GmbH</td>
+                 <td>Germany</td>
+                 <td>Adenauerstraße 20 A4, 52146 Würselen</td>
+             </tr>                
+         </tbody>
+         <!-- Contains row that represent the footer or summary -->
+         <tfoot >
+             <tr>
+                 
+                 <!-- rowspan number of columns a table cell should span in this case 4 columns -->
+               <td style="text-align:center;" colspan="4">These are the places where the various Companies' logistical hubs are situated.</td>
+             </tr>
+           </tfoot>
+     </table>
+
+     <!-- designed to center the text at the center -->
+     <h1 style="text-align: center;">Lists</h1>
+     <br/>
+     <p style="text-align: center;"><strong>Below is list of types of food</strong></p>
+     <br/>
+     <table>
+         <tr>
+             <td rowspan="1"><h1 style="text-align:center;">Unordered List</h1><td>
+             <td>
+                 <h2>Vegetables</h2>
+                 <ul style="list-style-type:disc;">
+                     <li>Eggplant</li>
+                     <li>Funnel</li>
+                     <li>Coriander</li>
+                     <li>Mint</li>
+                     <li>Lettuce</li>
+                     <li>Bellpepper</li>
+                     <li>Radish</li>
+                     <li>Garlic</li>
+                     <li>Leek</li>
+                     <li>Cabbage</li>
+                 </ul>
+             </td>
+             <td>
+                 <h2>Fruits</h2>
+                 <ul style="list-style-type:circle;">
+                     <li>Mango</li>
+                     <li>Apple</li>
+                     <li>Apricot</li>
+                     <li>Banana</li>
+                     <li>Blackberry</li>
+                     <li>Coconut</li>
+                     <li>Fig</li>
+                     <li>Grape</li>
+                     <li>Guava</li>
+                     <li>Dates</li>
+                 </ul>
+             </td>
+             <td>
+                 <h2>Cereals</h2>
+                 <ul style="list-style-type:square;">
+                     <li>Wheat</li>
+                     <li>Rice</li>
+                     <li>Barley</li>
+                     <li>Sorghum</li>
+                     <li>Pearl millet</li>
+                     <li>Finger millet</li>
+                     <li>Maize</li>
+                     <li>Oats</li>
+                 </ul>
+             </td>
+             <td>
+                 <h2>Tubers</h2>
+                 <ul style="list-style-type:none;">
+                     <li>Potatoes</li>
+                     <li>Sweet potatoes</li>
+                     <li>Carrots</li>
+                     <li>Cassava</li>
+                     <li>Onion</li>
+                     <li>Yam</li>
+                     <li>Ginger</li>
+                     <li>Lily</li>
+                 </ul>
+             </td>
+                        
+         </tr>
+         <tr>
+             <td rowspan="1"><h1 style="text-align:center;">Ordered List</h1><td>
+             <td>
+                 <h2>Legumes</h2>
+                 <ol type="1">
+                     <li>Split pea</li>
+                     <li>Roman bean</li>
+                     <li>Pink Pea</li>
+                     <li>Lema bean</li>
+                     <li>Soya bean</li>
+                     <li>Pinto Pea</li>
+                 </ol>
+             </td>
+             <td>
+                 <h2>Seeds</h2>
+                 <ol type="A">
+                     <li>Sunflower seeds</li>
+                     <li>Rye</li>
+                     <li>Sesame seed</li>
+                     <li>Chia seed</li>
+                     <li>Bread seed</li>
+                     
+                 </ol>
+             </td>
+             <td>
+                 <h2>Nuts</h2>
+                 <ol type="a">
+                     <li>Peanut</li>
+                     <li>Walnut</li>
+                     <li>Almond</li>
+                     <li>Pistachios</li>
+                     <li>Pine nuts</li>
+                     <li>Chestnuts</li>
+                 </ol>
+             </td>
+             <td>
+                 <h2>Dairy</h2>
+                 <ol type="I">
+                     <li>Milk</li>
+                     <li>Butter</li>
+                     <li>Curd</li>
+                     <li>Cheese</li>
+                     <li>Ice-cream</li>
+                     
+                 </ol>
+             </td>
+             <td>
+                 <h2>Meat,Fish,and Eggs</h2>
+                 <ol type="i">
+                     <li>Beef</li>
+                     <li>Chicken</li>
+                     <li>Steak</li>
+                     <li>Pork</li>
+                     <li>Turkey</li>
+                 </ol>
+             </td>
+             
+         </tr>
+         <tr>
+             <td rowspan="1">
+                <h1 style="text-align:center;">Other List</h1>
+             <td>
+             <td>
+                 <h2>Fish</h2>
+                 <dl>
+                     <dt>Bony Fish</dt>
+                     <dd>- Ocean sunfish</dd>
+                     <dd>- Lungfish</dd>
+                     <dd>- Catfish</dd>
+                     <dd>- Perch</dd>
+                 </dl>
+             </td>
+             <td>    
+                 <dl>
+                     <dt>Jawless Fish</dt>
+                     <dd>- hagfish</dd>
+                     <dd>- lampreys</dd>
+                 </dl>
+             </td>
+             <td>     
+                 <dl>
+                     <dt>Cartilaginous Fish</dt>
+                     <dd>- Sharks</dd>
+                     <dd>- Batoids</dd>
+                     <dd>- Stingray</dd>
+                     <dd>- Chimaera</dd>
+                     <dd>- Helicoprion</dd>
+                     <dd>- Edestus</dd>
+                 </dl>
+             </td>
+         </tr>
+     </table>
+</body>
+</html>

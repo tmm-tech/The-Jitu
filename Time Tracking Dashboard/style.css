@@ -1,0 +1,698 @@
+body {
+    background-color: hsl(226, 43%, 10%);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.same p {
+    color: hsl(246, 80%, 60%);
+    font-size: 15px;
+    margin-top: -160px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+    text-align: start;
+    margin-left: 10px;
+}
+
+.selected p {
+    color: white;
+    font-size: 15px;
+    margin-top: -130px;
+    text-align: start;
+    margin-left: 10px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+}
+
+.container {
+    background-color: hsl(226, 43%, 10%);
+    padding: 30px;
+    width: 970px;
+    gap: 30px;
+    margin-top: 10%;
+    min-height: 350px;
+    display: grid;
+    grid-template-areas: 'item1 item2 item3 item4' 'item1 item5 item6 item7';
+}
+
+.item {
+    text-align: center;
+    display: flex;
+    line-height: 100px;
+    border-radius: 10px;
+    border: hsl(226, 43%, 10%);
+    font-size: 40px;
+    font-size: 700;
+}
+
+#inner {
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 10px;
+    margin-top: -55px;
+    border: hsl(226, 43%, 10%);
+    display: grid;
+}
+
+#inner p {
+    color: white;
+    font-size: 15px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+    text-align: start;
+    margin-left: 25px;
+}
+
+.outer {
+    background-color: hsl(246, 80%, 60%);
+    border-radius: 10px;
+    margin-bottom: 60%;
+    border: hsl(226, 43%, 10%);
+    display: grid;
+}
+
+#image {
+    margin-left: 70%;
+    width: 50px;
+    height: 50px;
+}
+
+#icon {
+    margin-left: 80%;
+    margin-top: -95px;
+    width: 15px;
+    height: 4px;
+}
+
+#jeremy {
+    width: 60px;
+    height: 60px;
+}
+
+.item1 a {
+    text-decoration: none;
+}
+
+.item1 a:hover {
+    color: white;
+}
+
+.item1 a.display {
+    color: #565b92;
+    font-size: 15px;
+    margin-top: -140px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+    text-align: start;
+    margin-left: 10px;
+}
+
+.item1 a.display1 {
+    color: #565b92;
+    font-size: 15px;
+    margin-top: -80px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+    text-align: start;
+    margin-left: 10px;
+    margin-bottom: -100px;
+}
+
+.item1 a.selected {
+    color: #565b92;
+    font-size: 15px;
+    margin-top: -105px;
+    text-align: start;
+    margin-left: 10px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+}
+
+item1 a:hover {
+    color: white;
+}
+
+.outer p.rob {
+    margin-top: -70px;
+}
+
+.outer p.jer {
+    margin-top: 25px;
+}
+
+.outer p {
+    font-size: 32px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+    text-align: start;
+    margin-top: 40px;
+    line-height: 2.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-left: 10%;
+}
+
+#inner .content p.time {
+    font-size: 40px;
+    margin-top: -110px;
+    margin-left: 25px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: -50px;
+}
+
+#inner .content p.details {
+    color: #999ccf;
+    font-size: 13px;
+    margin-top: -10px;
+    font-family: Montserrat;
+    font-weight: 200;
+    font-weight: 500;
+    font-weight: 1400;
+    margin-left: 20px;
+    margin-bottom: -40px;
+}
+
+.outer h4 {
+    font-size: 12px;
+    text-align: start;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300, 400, 500;
+    color: #a8a0f9;
+    margin-top: -20px;
+    margin-bottom: -90px;
+    margin-left: 12%;
+}
+
+.item1 {
+    grid-area: item1;
+    background-color: hsl(235, 46%, 20%);
+    display: grid;
+}
+
+.item2 {
+    grid-area: item2;
+    background-color: hsl(15, 100%, 70%);
+    display: grid;
+}
+
+.item3 {
+    grid-area: item3;
+    background-color: hsl(195, 74%, 62%);
+    display: grid;
+}
+
+.item4 {
+    grid-area: item4;
+    background-color: hsl(348, 100%, 68%);
+    display: grid;
+}
+
+.item5 {
+    grid-area: item5;
+    background-color: hsl(145, 58%, 55%);
+    display: grid;
+}
+
+.item6 {
+    grid-area: item6;
+    background-color: hsl(264, 64%, 52%);
+    display: grid;
+}
+
+.item7 {
+    grid-area: item7;
+    background-color: #f1c65b;
+    display: grid;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('https://fonts.googleapis.com/css?family=Rubik');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('https://fonts.googleapis.com/css?family=Rubik');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('https://fonts.googleapis.com/css?family=Rubik');
+    font-weight: 500;
+}
+
+.circle {
+    /* (A) SAME WIDTH & HEIGHT - SQUARE */
+    width: 65px;
+    height: 65px;
+    margin-top: 15%;
+    margin-left: 10%;
+    /* (B) 50% RADIUS = CIRCLE */
+    border-radius: 50%;
+    /* (C) BACKGROUND COLOR */
+    background: #ffffff;
+}
+
+@media(max-width:1440px) {
+    body {
+        background-color: hsl(226, 43%, 10%);
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .same p {
+        color: hsl(246, 80%, 60%);
+        font-size: 15px;
+        margin-top: -160px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 10px;
+    }
+    .selected p {
+        color: white;
+        font-size: 15px;
+        margin-top: -130px;
+        text-align: start;
+        margin-left: 10px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+    }
+    .container {
+        background-color: hsl(226, 43%, 10%);
+        padding: 30px;
+        width: 970px;
+        gap: 30px;
+        margin-top: 10%;
+        min-height: 350px;
+        display: grid;
+        grid-template-areas: 'item1 item2 item3 item4' 'item1 item5 item6 item7';
+    }
+    .item {
+        text-align: center;
+        display: flex;
+        line-height: 100px;
+        border-radius: 10px;
+        border: hsl(226, 43%, 10%);
+        font-size: 40px;
+        font-size: 700;
+    }
+    #inner {
+        background-color: hsl(235, 46%, 20%);
+        border-radius: 10px;
+        margin-top: -55px;
+        border: hsl(226, 43%, 10%);
+        display: grid;
+    }
+    #inner p {
+        color: white;
+        font-size: 15px;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 25px;
+    }
+    .outer {
+        background-color: hsl(246, 80%, 60%);
+        border-radius: 10px;
+        margin-bottom: 60%;
+        border: hsl(226, 43%, 10%);
+        display: grid;
+    }
+    #image {
+        margin-left: 70%;
+        width: 50px;
+        height: 50px;
+    }
+    #icon {
+        margin-left: 80%;
+        margin-top: -95px;
+        width: 15px;
+        height: 4px;
+    }
+    #jeremy {
+        width: 60px;
+        height: 60px;
+    }
+    .item1 p.display {
+        color: #565b92;
+        font-size: 15px;
+        margin-top: -140px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 10px;
+    }
+    .item1 p.display1 {
+        color: #565b92;
+        font-size: 15px;
+        margin-top: -85px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 10px;
+        margin-bottom: -100px;
+    }
+    .item1 p.selected {
+        color: white;
+        font-size: 15px;
+        margin-top: -105px;
+        text-align: start;
+        margin-left: 10px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+    }
+    .outer p.rob {
+        margin-top: -70px;
+    }
+    .outer p.jer {
+        margin-top: 25px;
+    }
+    .outer p {
+        font-size: 32px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-top: 40px;
+        line-height: 2.2em;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        margin-left: 10%;
+    }
+    #inner .content p.time {
+        font-size: 40px;
+        margin-top: -110px;
+        margin-left: 25px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: -50px;
+    }
+    #inner .content p.details {
+        color: #999ccf;
+        font-size: 13px;
+        margin-top: -10px;
+        font-family: Montserrat;
+        font-weight: 200;
+        font-weight: 500;
+        font-weight: 1400;
+        margin-left: 20px;
+        margin-bottom: -40px;
+    }
+    .outer h4 {
+        font-size: 12px;
+        text-align: start;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        color: #a8a0f9;
+        margin-top: -20px;
+        margin-bottom: -90px;
+        margin-left: 12%;
+    }
+    .item1 {
+        grid-area: item1;
+        background-color: hsl(235, 46%, 20%);
+        display: grid;
+    }
+    .item2 {
+        grid-area: item2;
+        background-color: hsl(15, 100%, 70%);
+        display: grid;
+    }
+    .item3 {
+        grid-area: item3;
+        background-color: hsl(195, 74%, 62%);
+        display: grid;
+    }
+    .item4 {
+        grid-area: item4;
+        background-color: hsl(348, 100%, 68%);
+        display: grid;
+    }
+    .item5 {
+        grid-area: item5;
+        background-color: hsl(145, 58%, 55%);
+        display: grid;
+    }
+    .item6 {
+        grid-area: item6;
+        background-color: hsl(264, 64%, 52%);
+        display: grid;
+    }
+    .item7 {
+        grid-area: item7;
+        background-color: #f1c65b;
+        display: grid;
+    }
+    @font-face {
+        font-family: 'Rubik';
+        src: url('https://fonts.googleapis.com/css?family=Rubik');
+        font-weight: 300;
+    }
+    @font-face {
+        font-family: 'Rubik';
+        src: url('https://fonts.googleapis.com/css?family=Rubik');
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: 'Rubik';
+        src: url('https://fonts.googleapis.com/css?family=Rubik');
+        font-weight: 500;
+    }
+    .circle {
+        /* (A) SAME WIDTH & HEIGHT - SQUARE */
+        width: 65px;
+        height: 65px;
+        margin-top: 15%;
+        margin-left: 10%;
+        /* (B) 50% RADIUS = CIRCLE */
+        border-radius: 50%;
+        /* (C) BACKGROUND COLOR */
+        background: #ffffff;
+    }
+}
+
+@media(max-width:375px) {
+    .same p {
+        color: hsl(246, 80%, 60%);
+        font-size: 15px;
+        margin-top: -160px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 10px;
+    }
+    .selected p {
+        color: white;
+        font-size: 15px;
+        margin-top: -130px;
+        text-align: start;
+        margin-left: 10px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+    }
+    .container {
+        background-color: hsl(226, 43%, 10%);
+        padding: 30px;
+        width: 970px;
+        gap: 30px;
+        margin-top: 10%;
+        min-height: 350px;
+        display: grid;
+        grid-template-areas: 'item1' 'item1' 'item2' 'item3' 'item4' 'item5' 'item6' 'item7';
+    }
+    .item {
+        text-align: center;
+        display: flex;
+        line-height: 100px;
+        border-radius: 10px;
+        border: hsl(226, 43%, 10%);
+        font-size: 40px;
+        font-size: 700;
+    }
+    #inner {
+        background-color: hsl(235, 46%, 20%);
+        border-radius: 10px;
+        margin-top: -20px;
+        border: hsl(226, 43%, 10%);
+        display: grid;
+    }
+    #inner p {
+        color: white;
+        font-size: 15px;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 25px;
+    }
+    .outer {
+        background-color: hsl(246, 80%, 60%);
+        border-radius: 10px;
+        margin-bottom: 20%;
+        border: hsl(226, 43%, 10%);
+        display: grid;
+    }
+    #image {
+        margin-left: 77%;
+        width: 50px;
+        height: 50px;
+    }
+    #icon {
+        margin-left: 80%;
+        margin-top: -85px;
+        width: 15px;
+        height: 4px;
+    }
+    #jeremy {
+        width: 60px;
+        height: 60px;
+    }
+    .item1 p.display {
+        color: #565b92;
+        font-size: 15px;
+        margin-top: -80px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: start;
+        margin-left: 10px;
+    }
+    .item1 p.display1 {
+        color: #565b92;
+        font-size: 15px;
+        margin-top: -114px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: end;
+        margin-right: 13px;
+    }
+    .item1 p.selected {
+        color: white;
+        font-size: 15px;
+        margin-top: -116px;
+        text-align: center;
+        margin-left: 10px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+    }
+    .outer p.rob {
+        margin-right: 13%;
+        font-size: 20px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: end;
+        line-height: 2.2em;
+        margin-top: -62px;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+    }
+    .outer p.jer {
+        margin-top: -45px;
+        font-size: 20px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        text-align: end;
+        line-height: 2.2em;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        margin-right: 40%;
+    }
+    #inner .content p.time {
+        font-size: 40px;
+        margin-top: -96px;
+        margin-left: 25px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: -50px;
+    }
+    #inner .content p.details {
+        color: #999ccf;
+        font-size: 13px;
+        margin-top: -95px;
+        font-family: Montserrat;
+        font-weight: 200;
+        font-weight: 500;
+        margin-right: 13px;
+        font-weight: 1400;
+        text-align: end;
+    }
+    .outer h4 {
+        font-size: 12px;
+        text-align: end;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300, 400, 500;
+        color: #a8a0f9;
+        margin-top: -90px;
+        margin-bottom: -90px;
+        margin-right: 45%;
+    }
+    .item1 {
+        grid-area: item1;
+        background-color: hsl(235, 46%, 20%);
+        display: grid;
+    }
+    .item2 {
+        grid-area: item2;
+        background-color: hsl(15, 100%, 70%);
+        display: grid;
+    }
+    .item3 {
+        grid-area: item3;
+        background-color: hsl(195, 74%, 62%);
+        display: grid;
+    }
+    .item4 {
+        grid-area: item4;
+        background-color: hsl(348, 100%, 68%);
+        display: grid;
+    }
+    .item5 {
+        grid-area: item5;
+        background-color: hsl(145, 58%, 55%);
+        display: grid;
+    }
+    .item6 {
+        grid-area: item6;
+        background-color: hsl(264, 64%, 52%);
+        display: grid;
+    }
+    .item7 {
+        grid-area: item7;
+        background-color: hsl(43, 84%, 65%);
+        display: grid;
+    }
+    @font-face {
+        font-family: 'Rubik';
+        src: url('https://fonts.googleapis.com/css?family=Rubik');
+        font-weight: 300;
+    }
+    @font-face {
+        font-family: 'Rubik';
+        src: url('https://fonts.googleapis.com/css?family=Rubik');
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: 'Rubik';
+        src: url('https://fonts.googleapis.com/css?family=Rubik');
+        font-weight: 500;
+    }
+    .circle {
+        /* (A) SAME WIDTH & HEIGHT - SQUARE */
+        width: 65px;
+        height: 65px;
+        margin-top: 15%;
+        margin-left: 10%;
+        /* (B) 50% RADIUS = CIRCLE */
+        border-radius: 50%;
+        /* (C) BACKGROUND COLOR */
+        background: #ffffff;
+    }
+}
