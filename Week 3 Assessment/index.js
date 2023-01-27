@@ -1,18 +1,18 @@
 // 1. Will the below two functions output the same results? Explain your answer.
 
-// function foo1() {
+function foo1() {
 
-// return {bar: "hello"};//this will display the property bar with value "hello"
+return {bar: "hello"};//this will display the property bar with value "hello"
 
-// }
+}
 
-// function foo2() {
+function foo2() {
 
-// Return {bar: "hello"};//SyntaxError: Unexpected token '{' wont display the same output since it has a syntax error as javascript is case sensitive.
+Return {bar: "hello"};//SyntaxError: Unexpected token '{' wont display the same output since it has a syntax error as javascript is case sensitive.
 
-// }
-// console.log(typeof(foo1()));
-// console.log(typeof(foo2()));
+}
+console.log(typeof(foo1()));
+console.log(typeof(foo2()));
 
 //****************************************************************
 
