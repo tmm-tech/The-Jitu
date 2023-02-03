@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.App{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.task-search {
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+    outline: none;
+    margin-right: 10px;
+}
+.InputDisplay{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.InputDisplay ul li{
+    list-style: none;
+}
