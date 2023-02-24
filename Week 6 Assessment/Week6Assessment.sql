@@ -1,76 +1,86 @@
--- create employees table
--- CREATE TABLE employees (
---     employee_id INT PRIMARY KEY,
---     fullname VARCHAR(50),
---     department VARCHAR(50)
--- )
--- GO
--- -- CREATE SALES TABLE
--- CREATE TABLE sales(
---     id INT PRIMARY KEY,
---     employee_id INT,
---     phone VARCHAR(50),
---     amount decimal(10,2),
--- )
--- GO
+-- 1. Create two tables, employees and sales. Get a list of all employees who did not make any sales.  
+CREATE TABLE employees(
+    id INT PRIMARY KEY,
+    full_name VARCHAR(250)
+);
+CREATE TABLE sales(
+    id INT PRIMARY KEY,
+    employees_id INT,
+    items_sold INT
+);
 
--- INSERT DATA INTO THE TABLES
--- INSERT INTO employees (employee_id,fullname,department)VALUES(1,'John Mwangi','Finance'),(2,'James Collins','HR'),(3,'Janet Opiyo','IT'),(4,'Jackline Mwende','Sales'),(5,'Sandra Mills','Production')
--- GO
--- INSERT INTO sales (id,employee_id,phone,amount)VALUES(5,1,'0700748919',100),(6,2,'0700748959',300),(7,2,'0700778919',700),(8,4,'0700744919',600)
--- GO
--- Select employees who did not make any sales
--- SELECT em.* FROM employees em
--- LEFT JOIN sales s on em.employee_id=s.employee_id
--- WHERE s.employee_id IS NULL;
+-- Insert data into the tables
+INSERT INTO employees (id,full_name) VALUES (101,'Johnson Kimathi'),(102,'Jason Collins'),(103,'Amanda Mwema'),(104, 'Annastacia Gemini'),(105,'Trevor Hart'),(106, 'Jane Doe');
+INSERT INTO sales (id,employees_id,items_sold) VALUES (1,101,100),(2,106,200),(3,104,600),(4,106,500),(5,105,300),(6,105,500);
 
--- -- CREATE customers table
--- CREATE TABLE Customers(
---     CustomerID INT PRIMARY KEY,
---     CustomerName VARCHAR(50),
---     ContactName VARCHAR(50),
---    Address VARCHAR(50),
---    City VARCHAR(50),
---    PostalCode VARCHAR(50),
---    Country VARCHAR(50)
--- )
--- GO
--- insert into customers
--- INSERT INTO Customers (CustomerID,CustomerName,ContactName,Address,City,PostalCode,Country)VALUES
--- (1, 'Alfred Michael','Alexa Maina','Ngongo Road','Nairobi','01000','Kenya'),
--- (2, 'John Mwangi','Susanna lulu','Pwani','Mombasa','01000','Kenya'),
--- (3,'Antony Mweru','Jackson Kibet','Makongeni','Thika','01000','Kenya'),
--- (4,'Peterson Kihika','Elizabeth Njambi','China Town','NEW York','0100','USA'),
--- (5,'Johnson Mandela','Gift Achieng','Boston','England','0000','United Kingdom')
--- GO
+SELECT * FROM employees;
+SELECT * from sales;
 
--- -- select and group by country
--- SELECT Country, COUNT(CustomerID)
--- FROM Customers
--- GROUP BY Country
--- HAVING COUNT(CustomerID)>3
--- -- Write a procedure that caninsert or update the employee table
--- CREATE PROCEDURE InsertorUpdateEmployee
---     @id INT,
---     @dept VARCHAR(50),
---     @name VARCHAR(50)
+SELECT e.full_name,s.items_sold 
+FROM employees e
+LEFT JOIN sales s ON e.id=s.employees_id
+WHERE s.employees_id IS NULL;
+-- 2. Assuming you have Customers table; with columns CustomerID, CustomerName, ContactName, Address, City, PostalCode and Country. Write a query to list the number of customers in each country; only include countries with more than 3 customers   , use ORDER BY too. 
+CREATE TABLE Customers(
+ CustomerID INT PRIMARY KEY,
+ CustomerName VARCHAR(50),
+ ContactName VARCHAR(50), 
+ Address VARCHAR(50), 
+ City VARCHAR(50), 
+ PostalCode INT,
+ Country VARCHAR(50)
+);
+INSERT INTO Customers(CustomerID,CustomerName, ContactName, Address, City, PostalCode,Country) 
+VALUES 
+(1001,'Jena Jackson','123','21 WalL Street','New York',2106,'USA'),
+(1002,'James Jackson',' james','Nyaribo','Nyeri',254,'Kenya'),
+(1003,'Ebenezer Ekuweme','Jane','Village','Abuja',244,'Nigeria'),
+(1004,'Abraham Mula','Luke','Cairo','Cairo',233,'Egypt'),
+(1005,'Jane Mwangi','Jack','Karatina','Nyeri',254,'Kenya'),
+(1006,'Aki Popo','Allan','Village','Lagos',244,'Nigeria'),
+(1007,'Tony Mwangi','linet','Blue Post','Thika',254,'Kenya'),
+(1008,'Patience','Hannah','Village','Abuja',244,'Nigeria'),
+(1009,'Barrack Obama','Jackson','21 WalL Street','New York',2106,'USA'),
+(1010,'William Kingston','Kelly','Boston','England',210,'UK'),
+(1011,'mitchell Jay','Mark','21 WalL Street','New York',2106,'USA'),
+(1012,'Mbona Mpotevu','Kevin','Congo','Congo',207,'Congo'),
+(1013,'Jena Jackson','123','21 WalL Street','New York',2106,'USA'),
+(1014,'James Jackson',' james','Nyaribo','Nyeri',254,'Kenya'),
+(1015,'Ebenezer Ekuweme','Jane','Village','Abuja',244,'Nigeria'),
+(1016,'Abraham Mula','Luke','Cairo','Cairo',233,'Egypt'),
+(1017,'Jane Mwangi','Jack','Karatina','Nyeri',254,'Kenya'),
+(1018,'Aki Popo','Allan','Village','Lagos',244,'Nigeria'),
+(1019,'Tony Mwangi','linet','Blue Post','Thika',254,'Kenya'),
+(1020,'Patience','Hannah','Village','Abuja',244,'Nigeria'),
+(1021,'Barrack Obama','Jackson','21 WalL Street','New York',2106,'USA'),
+(1022,'William Kingston','Kelly','Boston','England',210,'UK'),
+(1023,'mitchell Jay','Mark','21 WalL Street','New York',2106,'USA'),
+(1024,'Mbona Mpotevu','Kevin','Congo','Congo',207,'Congo');
+
+SELECT Country, COUNT(CustomerID) AS Total_Customers
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID)>3
+ORDER BY Country;
+-- 3. Write one procedure that can insert or update the employee (avoid using if statement to check the statement e.g., if (statement ==’Insert)) 
+-- CREATE PROCEDURE Insert_UpdateEmployee
+-- @id INT,
+-- @fullname VARCHAR(50)
 -- AS
---  MERGE employees AS target
---  USING (SELECT @id,@dept,@name) AS source (id,name,department)
---  on (target.employee_id=source.id)
---  WHEN MATCHED THEN
---  UPDATE SET
---   target.fullname=source.name,
---  target.department=source.department
+-- BEGIN
+-- MERGE employees AS INFO
+-- USING (SELECT @id,@fullname) AS source (id,full_name)
+-- ON(INFO.id=source.id)
+-- WHEN MATCHED THEN
+--     UPDATE SET
+--         INFO.full_name=source.full_name
 -- WHEN NOT MATCHED THEN
--- INSERT (employee_id,fullname,department) VALUES (source.id,source.name,source.department);
- 
--- execute
--- EXEC InsertorUpdateEmployee @id=3, @name='Johnson',@dept='Audit';
-
--- fetching duplicate records
-
-
+--     INSERT (id,full_name) 
+--     VALUES (source.id,source.full_name);
+-- END
+EXEC Insert_UpdateEmployee @id=107, @fullname='John Doe';
+SELECT * FROM employees
+-- 4. Write an SQL query to fetch duplicate records from EmployeeDetails (without considering the primary key – EmpId)(create dummy data to use) 
 CREATE TABLE EmployeeDetails(
     Empid INT PRIMARY KEY,
     name VARCHAR(50),
@@ -79,7 +89,7 @@ CREATE TABLE EmployeeDetails(
 GO
 
 -- INSERT DATA INTO THE EmployeeDetails TABLES
-INSERT INTO EmployeeDetails (Empid,name,Age)VALUES(1,'John Mwangi',30),(2,'James Collins',25),(3,'Janet Opiyo',36),(4,'James Collins',25),(5,'Sandra Mills',40)
+INSERT INTO EmployeeDetails (Empid,name,Age)VALUES(100,'Patrick Gachanja',20),(101,'Donald Trump',25),(102,'Jane Doe',36),(104,'John Doe',25),(103,'Patrick Gachanja',20)
 GO
 
 -- select to fetch duplicate records
@@ -88,30 +98,34 @@ FROM EmployeeDetails ed
 JOIN EmployeeDetails e1 on ed.name=e1.name AND ed.Empid <> e1.Empid;
 GO
 
-CREATE TABLE MyTables(
+-- 5. Write an SQL query to fetch only odd rows from the table (create dummy data to use) 
+CREATE TABLE Employees_tb(
     Id INT PRIMARY KEY,
     name VARCHAR(50),
     Age INT
 )
 GO
 
--- INSERT DATA INTO THE MyTables TABLES
-INSERT INTO MyTables (Id,name,Age)VALUES(1,'John Mwangi',30),(2,'James Collins',25),(3,'Janet Opiyo',36),(4,'James Collins',25),(5,'Sandra Mills',40)
+-- INSERT DATA INTO THE Employees_tb TABLES
+INSERT INTO Employees_tb (Id,name,Age)VALUES (101,'Johnson Kimathi',30),(102,'Jason Collins',40),(103,'Amanda Mwema',60),(104, 'Annastacia Gemini',70),(105,'Trevor Hart',23),(106, 'Jane Doe',55);
 GO
 
 -- Fetch only odd numbers
 SELECT *
  FROM(SELECT *, ROW_NUMBER() 
- OVER (ORDER BY Id)as RowNumber FROM MyTables)t 
- WHERE t.RowNumber%2=1;
+ OVER (ORDER BY Id)as Rows FROM Employees_tb)et 
+ WHERE et.RowS%2=1;
 GO
+-- 6. Write a function that can calculate age given a certain date of birth.
 
--- FUNCTION TO  CALCULATE AGE GIVEN DATE OF BIRTH
-CREATE FUNCTION AgeCalculator(@dob DATE)
-RETURNS INT
-AS 
-BEGIN
-    DECLARE @age INT
-    SELECT @age=DATEDIFF(YEAR, @dob,GETDATE())-CASE WHEN DATEADD(YEAR,DATEDIFF(YEAR,@dob,GETDATE()),@dob)>GETDATE() THEN 1 ELSE 0 END
-    RETURN @age
-END;
+-- CREATE FUNCTION my_age(@dob DATE)
+-- RETURNS INT
+-- BEGIN
+-- DECLARE @age INT;
+-- SET @age = DATEDIFF(year, @dob , GETDATE())
+-- IF (DATEADD(year, @age,@dob) > GETDATE()) 
+-- SET @age= @age -1;
+-- RETURN @age;
+-- END
+
+SELECT [dbo].[my_age]('2001-01-10') AS AGE;

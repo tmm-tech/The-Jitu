@@ -1,131 +1,115 @@
--- 1. Create two tables, employees and sales. Get a list of all employees who did not make any sales.  
-CREATE TABLE employees(
-    id INT PRIMARY KEY,
-    full_name VARCHAR(250)
-);
-CREATE TABLE sales(
-    id INT PRIMARY KEY,
-    employees_id INT,
-    items_sold INT
+-- Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+
+CREATE TABLE STATION(
+    ID INT,
+    CITY VARCHAR(21),
+    STATE VARCHAR(21),
+    LAT_N FLOAT,
+    LONG_W FLOAT
 );
 
--- Insert data into the tables
-INSERT INTO employees (id,full_name) VALUES (101,'Johnson Kimathi'),(102,'Jason Collins'),(103,'Amanda Mwema'),(104, 'Annastacia Gemini'),(105,'Trevor Hart'),(106, 'Jane Doe');
-INSERT INTO sales (id,employees_id,items_sold) VALUES (1,101,100),(2,106,200),(3,104,600),(4,106,500),(5,105,300),(6,105,500);
-
-SELECT * FROM employees;
-SELECT * from sales;
-
-SELECT e.full_name,s.items_sold 
-FROM employees e
-LEFT JOIN sales s ON e.id=s.employees_id
-WHERE s.employees_id IS NULL;
--- 2. Assuming you have Customers table; with columns CustomerID, CustomerName, ContactName, Address, City, PostalCode and Country. Write a query to list the number of customers in each country; only include countries with more than 3 customers   , use ORDER BY too. 
-CREATE TABLE Customers(
- CustomerID INT PRIMARY KEY,
- CustomerName VARCHAR(50),
- ContactName VARCHAR(50), 
- Address VARCHAR(50), 
- City VARCHAR(50), 
- PostalCode INT,
- Country VARCHAR(50)
-);
-INSERT INTO Customers(CustomerID,CustomerName, ContactName, Address, City, PostalCode,Country) 
+INSERT INTO STATION 
 VALUES 
-(1001,'Jena Jackson','123','21 WalL Street','New York',2106,'USA'),
-(1002,'James Jackson',' james','Nyaribo','Nyeri',254,'Kenya'),
-(1003,'Ebenezer Ekuweme','Jane','Village','Abuja',244,'Nigeria'),
-(1004,'Abraham Mula','Luke','Cairo','Cairo',233,'Egypt'),
-(1005,'Jane Mwangi','Jack','Karatina','Nyeri',254,'Kenya'),
-(1006,'Aki Popo','Allan','Village','Lagos',244,'Nigeria'),
-(1007,'Tony Mwangi','linet','Blue Post','Thika',254,'Kenya'),
-(1008,'Patience','Hannah','Village','Abuja',244,'Nigeria'),
-(1009,'Barrack Obama','Jackson','21 WalL Street','New York',2106,'USA'),
-(1010,'William Kingston','Kelly','Boston','England',210,'UK'),
-(1011,'mitchell Jay','Mark','21 WalL Street','New York',2106,'USA'),
-(1012,'Mbona Mpotevu','Kevin','Congo','Congo',207,'Congo'),
-(1013,'Jena Jackson','123','21 WalL Street','New York',2106,'USA'),
-(1014,'James Jackson',' james','Nyaribo','Nyeri',254,'Kenya'),
-(1015,'Ebenezer Ekuweme','Jane','Village','Abuja',244,'Nigeria'),
-(1016,'Abraham Mula','Luke','Cairo','Cairo',233,'Egypt'),
-(1017,'Jane Mwangi','Jack','Karatina','Nyeri',254,'Kenya'),
-(1018,'Aki Popo','Allan','Village','Lagos',244,'Nigeria'),
-(1019,'Tony Mwangi','linet','Blue Post','Thika',254,'Kenya'),
-(1020,'Patience','Hannah','Village','Abuja',244,'Nigeria'),
-(1021,'Barrack Obama','Jackson','21 WalL Street','New York',2106,'USA'),
-(1022,'William Kingston','Kelly','Boston','England',210,'UK'),
-(1023,'mitchell Jay','Mark','21 WalL Street','New York',2106,'USA'),
-(1024,'Mbona Mpotevu','Kevin','Congo','Congo',207,'Congo');
+(1,'New York','New York',40.71,74.00),
+(2,'Houston','Texas',34.05,118.24),
+(3,'Chicago','Illinois',41.88,87.63),
+(4,'Los Angeles','California',29.76,95.37),
+(5,'Bengaluru','Karnataka',12.97,77.59),
+(6,'Mumbai','Maharashtra',19.07,72.87),
+(7,'New York','New York',40.71,74.00),
+(8,'Algeria','Africa',34.05,118.24),
+(9,'England','UK',41.88,87.63),
+(10,'Uruguay','Uruguay',29.76,95.37),
+(11,'Orland','UK',12.97,77.59),
+(12,'iran','Irag',19.07,72.87);
 
-SELECT Country, COUNT(CustomerID) AS Total_Customers
-FROM Customers
-GROUP BY Country
-HAVING COUNT(CustomerID)>3
-ORDER BY Country;
--- 3. Write one procedure that can insert or update the employee (avoid using if statement to check the statement e.g., if (statement ==’Insert)) 
--- CREATE PROCEDURE Insert_UpdateEmployee
--- @id INT,
--- @fullname VARCHAR(50)
--- AS
--- BEGIN
--- MERGE employees AS INFO
--- USING (SELECT @id,@fullname) AS source (id,full_name)
--- ON(INFO.id=source.id)
--- WHEN MATCHED THEN
---     UPDATE SET
---         INFO.full_name=source.full_name
--- WHEN NOT MATCHED THEN
---     INSERT (id,full_name) 
---     VALUES (source.id,source.full_name);
--- END
-EXEC Insert_UpdateEmployee @id=107, @fullname='John Doe';
-SELECT * FROM employees
--- 4. Write an SQL query to fetch duplicate records from EmployeeDetails (without considering the primary key – EmpId)(create dummy data to use) 
-CREATE TABLE EmployeeDetails(
-    Empid INT PRIMARY KEY,
-    name VARCHAR(50),
-    Age INT
-)
-GO
 
--- INSERT DATA INTO THE EmployeeDetails TABLES
-INSERT INTO EmployeeDetails (Empid,name,Age)VALUES(100,'Patrick Gachanja',20),(101,'Donald Trump',25),(102,'Jane Doe',36),(104,'John Doe',25),(103,'Patrick Gachanja',20)
-GO
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) AS DIFFERENCE FROM STATION;
 
--- select to fetch duplicate records
-SELECT ed.*
-FROM EmployeeDetails ed 
-JOIN EmployeeDetails e1 on ed.name=e1.name AND ed.Empid <> e1.Empid;
-GO
+-- Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
 
--- 5. Write an SQL query to fetch only odd rows from the table (create dummy data to use) 
-CREATE TABLE Employees_tb(
-    Id INT PRIMARY KEY,
-    name VARCHAR(50),
-    Age INT
-)
-GO
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT LIKE 'A%' AND
+ CITY NOT LIKE 'E%' AND
+ CITY NOT LIKE 'I%' AND
+ CITY NOT LIKE 'O%' AND
+ CITY NOT LIKE 'U%' AND
+ CITY NOT LIKE '%A' AND
+ CITY NOT LIKE '%E' AND
+ CITY NOT LIKE '%I' AND
+ CITY NOT LIKE '%O' AND
+ CITY NOT LIKE '%U';
 
--- INSERT DATA INTO THE Employees_tb TABLES
-INSERT INTO Employees_tb (Id,name,Age)VALUES (101,'Johnson Kimathi',30),(102,'Jason Collins',40),(103,'Amanda Mwema',60),(104, 'Annastacia Gemini',70),(105,'Trevor Hart',23),(106, 'Jane Doe',55);
-GO
+--  Query the Name of any student in STUDENTS who scored higher than  Marks. 
+-- Order your output by the last three characters of each name. 
+-- If two or more students both have names ending in the same last three characters 
+-- (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+ CREATE TABLE STUDENTS(
+     ID INTEGER PRIMARY KEY,
+     Name VARCHAR(21),
+     Marks INTEGER
+ );
 
--- Fetch only odd numbers
-SELECT *
- FROM(SELECT *, ROW_NUMBER() 
- OVER (ORDER BY Id)as Rows FROM Employees_tb)et 
- WHERE et.RowS%2=1;
-GO
--- 6. Write a function that can calculate age given a certain date of birth.
+INSERT INTO STUDENTS VALUES
+(1,'Ashley',81),
+(2,'Samantha',75),
+(4,'Julia',76),
+(3,'Belvet',84);
 
--- CREATE FUNCTION my_age(@dob DATE)
--- RETURNS INT
--- BEGIN
--- DECLARE @age INT;
--- SET @age = DATEDIFF(year, @dob , GETDATE())
--- IF (DATEADD(year, @age,@dob) > GETDATE()) 
--- SET @age= @age -1;
--- RETURN @age;
--- END
+SELECT Name 
+FROM STUDENTS 
+WHERE Marks >75;
 
-SELECT [dbo].[my_age]('2001-01-10') AS AGE;
+-- Write a query that prints a list of employee names 
+-- (i.e.: the name attribute) for employees 
+-- in Employee having a salary greater than  per month 
+-- who have been employees for less than  months. Sort your result by ascending employee_id.
+
+CREATE TABLE Employee(
+    employee_id INTEGER,
+    name VARCHAR(25),
+    months INTEGER,
+    salary INTEGER
+);
+
+INSERT INTO Employee VALUES
+(12228,'Rose',15,1968),
+(33645,'Angela',1,3443),
+(45692,'Frank',17,1608),
+(56118,'Patrick',7,1345),
+(59725,'Lisa',11,2330),
+(74197,'Kimberly',16,4372),
+(78454,'Bonnie',8,1771),
+(83565,'Michael',6,2017),
+(98607,'Todd',5,3396),
+(99989,'Joe',9,3573);
+
+SELECT name FROM Employee
+WHERE salary > 2000
+AND months < 10
+ORDER BY employee_id;
+
+
+-- Query all columns (attributes) for every row in the CITY table.
+CREATE TABLE CITY(
+    ID INTEGER PRIMARY KEY,
+    NAME VARCHAR(17),
+    COUNTRYCODE VARCHAR(3),
+    DISTRICT VARCHAR(20),
+    POPULATION INTEGER
+);
+
+INSERT INTO CITY VALUES
+(1,'Tokyo','JPN','Tokyo',13929286),
+(2,'Delhi','IND','Delhi',16787941),
+(3,'Shanghai','CHN','Shanghai',24256800),
+(4,'Sau Paulo','BRA','Sao Paulo',12106920),
+(5,'Mumbai','IND','Maharashtra',12691836),
+(6,'Beijing','CHN','Beijing',21516000),
+(7,'Istanbul','TUR','Istanbul',1502923),
+(8,'Karachi','PAK','Sindh',14910352),
+(9,'Dhaka','BGD','Dhaka',10356500),
+(10,'Moscow','RUS','Moscow',12506468);
+
+SELECT * FROM CITY;
