@@ -128,4 +128,4 @@ GO
 -- RETURN @age;
 -- END
 
-SELECT [dbo].[my_age]('2001-01-10');
+SELECT [dbo].[my_age]('2001-01-10') AS AGE;
